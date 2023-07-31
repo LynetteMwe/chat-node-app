@@ -28,9 +28,15 @@ app.get('/', (req, res) => {
 
 io.on('connection', (socket) => {
     socket.on('chat message', (msg) => {
+      console.log("User connected");
       io.emit('chat message', msg);
     });
+    // socket.on('disconnect',()=>{
+    //   console.log("User disconnected");
+    // })
 });
-server.listen(3000, () => {
+
+
+server.listen(3001, () => {
   console.log('listening on *:3000');
 });
